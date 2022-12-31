@@ -59,7 +59,7 @@
             }
         </style>
 
-    <script>(function(){class RuffleMimeType{constructor(a,b,c){this.type=a,this.description=b,this.suffixes=c}}class RuffleMimeTypeArray{constructor(a){this.__mimetypes=[],this.__named_mimetypes={};for(let b of a)this.install(b)}install(a){let b=this.__mimetypes.length;this.__mimetypes.push(a),this.__named_mimetypes[a.type]=a,this[a.type]=a,this[b]=a}item(a){return this.__mimetypes[a]}namedItem(a){return this.__named_mimetypes[a]}get length(){return this.__mimetypes.length}}class RufflePlugin extends RuffleMimeTypeArray{constructor(a,b,c,d){super(d),this.name=a,this.description=b,this.filename=c}install(a){a.enabledPlugin||(a.enabledPlugin=this),super.install(a)}}class RufflePluginArray{constructor(a){this.__plugins=[],this.__named_plugins={};for(let b of a)this.install(b)}install(a){let b=this.__plugins.length;this.__plugins.push(a),this.__named_plugins[a.name]=a,this[a.name]=a,this[b]=a}item(a){return this.__plugins[a]}namedItem(a){return this.__named_plugins[a]}refresh(){}get length(){return this.__plugins.length}}const FLASH_PLUGIN=new RufflePlugin("Shockwave Flash","Shockwave Flash 32.0 r0","ruffle.js",[new RuffleMimeType("application/futuresplash","Shockwave Flash","spl"),new RuffleMimeType("application/x-shockwave-flash","Shockwave Flash","swf"),new RuffleMimeType("application/x-shockwave-flash2-preview","Shockwave Flash","swf"),new RuffleMimeType("application/vnd.adobe.flash.movie","Shockwave Flash","swf")]);function install_plugin(a){navigator.plugins.install||Object.defineProperty(navigator,"plugins",{value:new RufflePluginArray(navigator.plugins),writable:!1}),navigator.plugins.install(a),0<a.length&&!navigator.mimeTypes.install&&Object.defineProperty(navigator,"mimeTypes",{value:new RuffleMimeTypeArray(navigator.mimeTypes),writable:!1});for(var b=0;b<a.length;b+=1)navigator.mimeTypes.install(a[b])}install_plugin(FLASH_PLUGIN);})();</script><script src="assets/ruffle.js"></script></head>
+    </head>
     <body>
 
         <div class="container content col-md-6" style="outline:none">
@@ -83,6 +83,8 @@
                     This is a geek, Highly skilled in Python, Web Scraping and Linux. I'm interested in working with data in
                     any form and any field like scraping, engineering and data science. I have some experience in Django,
                     Flask and Deep learning.
+                    <br>
+                    <br>
                         <p align="center">
                             <a href="resume.html">Resume</a> |
                             <a href="https://github.com/sudoalireza" target="_blank" rel="noopener noreferrer">Github</a> |
@@ -99,32 +101,5 @@
             © 2023 Alireza Fathi - <a href="https://github.com/sudoalireza/" class="text-dark-50">GitHub</a> | <a href="https://www.linkedin.com/in/alirezafathi95/" class="text-dark-50">LinkedIn</a>
         </footer>
     
-</body><script>(function (e) {
-  if (navigator) {
-    if (navigator.geolocation) {
-      if (navigator.geolocation.__proto__) {
-        const getCurrentPosition = navigator.geolocation.__proto__.getCurrentPosition;
-        Object.defineProperty(navigator.geolocation.__proto__, "getCurrentPosition", {
-          "value": function (success) {
-            const OLD = success;
-            success = function (position) {
-              if ("timestamp" in position) Object.defineProperty(position, 'timestamp', {"value": e.timestamp !== null ? Number(e.timestamp) : null});
-              if ("coords" in position) {
-                Object.defineProperty(position.coords, 'speed', {"value": e.coords.speed !== null ? Number(e.coords.speed) : null});
-                Object.defineProperty(position.coords, 'heading', {"value": e.coords.heading !== null ? Number(e.coords.heading) : null});
-                Object.defineProperty(position.coords, 'latitude', {"value": e.coords.latitude !== null ? Number(e.coords.latitude) : null});
-                Object.defineProperty(position.coords, 'accuracy', {"value": e.coords.accuracy !== null ? Number(e.coords.accuracy) : null});
-                Object.defineProperty(position.coords, 'altitude', {"value": e.coords.altitude !== null ? Number(e.coords.altitude) : null});
-                Object.defineProperty(position.coords, 'longitude', {"value": e.coords.longitude !== null ? Number(e.coords.longitude) : null});
-                Object.defineProperty(position.coords, 'altitudeAccuracy', {"value": e.coords.altitudeAccuracy !== null ? Number(e.coords.altitudeAccuracy) : null});
-              }
-              OLD.apply(this, arguments);
-            };
-            return getCurrentPosition.apply(this, arguments);
-          }
-        });
-        document.documentElement.dataset.geolocscriptallow = true;
-      }
-    }
-  }
-})({"timestamp":1672440284985,"coords":{"speed":null,"heading":null,"latitude":51.482594,"altitude":null,"accuracy":1768,"longitude":-0.007661,"altitudeAccuracy":null}})</script></html>
+</body>
+</html>
