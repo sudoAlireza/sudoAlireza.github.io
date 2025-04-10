@@ -1,239 +1,256 @@
 <!DOCTYPE html>
-<html data-geolocscriptallow="true" lang="en">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Alireza Fathi | Python Developer">
-    <meta name="description" property="og:description"
-      content="Junior Python Data Engineer-Web Scraper at SnappFood. Motivated by Python, Algorithms, Data, and results.">
-    <meta property="og:image" content="assets/avatar.jpg">
-    <meta property="og:image:alt" content="Alireza Fathi's Profile">
-    <meta property="og:url" content="Alireza Fathi's Profile">
-    <meta name="twitter:card" value="Alireza Fathi's Profile">
-
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-
-
-    <title>Alireza Fathi | Python Developer</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-
-
+    <title>Alireza Fathi - Backend Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-      a.icons {
-        color: inherit;
-      }
+        /* Custom styles can go here if Tailwind isn't sufficient */
+        body {
+            font-family: 'Inter', sans-serif; /* Example: Using a nice sans-serif font */
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+        /* Add a subtle gradient background */
+        body {
+            background: linear-gradient(to bottom right, #f3f4f6, #e5e7eb);
+        }
+        /* Custom underline effect for section titles */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #3b82f6; /* Tailwind blue-500 */
+            margin-top: 8px;
+        }
+        /* Style for skill badges */
+        .skill-badge {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .skill-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        /* Simple animation for page load */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
 
-      #footer {
-        height: 50px;
-        bottom: 0px;
-        left: 0px;
-        right: 0px;
-        margin-bottom: 0px;
-      }
+        @media print {
+            body {
+                background: #fff;
+                color: #000;
+                margin: 0;
+                padding: 0;
+                font-size: 10pt;
+            }
+            .no-print, footer p:last-child {
+                display: none !important;
+            }
+            section { page-break-inside: avoid; }
+            header, main { page-break-after: avoid; }
+            .shadow-xl, .border { box-shadow: none !important; border: none !important; }
+            a { color: #000; text-decoration: underline; }
+            .skill-badge {
+                 -webkit-print-color-adjust: exact !important;
+                 print-color-adjust: exact !important;
+                 border: 1px solid #ccc;
+            }
+            .max-w-5xl { max-width: 100%; padding: 1cm; margin: 0; }
+        }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800 leading-relaxed">
 
-  </head>
-  <body>
+    <div class="max-w-5xl mx-auto p-6 md:p-10 lg:p-12 bg-white shadow-xl rounded-lg my-10 fade-in">
 
-    <div class="container content col-md-6">
-      <div class="row main-name">
-        <div class="col-sm-6 col-xs-6">
-          <br>
-          <h1> Alireza <span class="accent-color">Fathi</span> </h1>
-          Python Data Developer at SnappShop
-        </div>
-        <div class="col-xs-2 col-sm-2">
-        </div>
-        <div class="col-sm-4  col-xs-4">
-          <br>
-
-          <a class="icons" href="index.html" style="text-decoration:none">
-            <p style="margin:0;"><i class="bi bi-globe"></i> Home</p>
-          </a>
-          <a class="icons" href="https://github.com/sudoalireza" style="text-decoration:none">
-            <p style="margin:0;"><i class="bi-github" role="img" aria-label="GitHub"></i> GitHub</p>
-          </a>
-          <a class="icons" href="https://www.linkedin.com/in/alirezafathi95/" style="text-decoration:none">
-            <p style="margin:0;"><i class="bi bi-linkedin"></i> LinkedIn </p>
-          </a>
-          <a class="icons" href="mailto:alirezafathi.ce@gmail.com" style="text-decoration:none">
-            <p style="margin:0;"><i class="bi bi-mailbox"></i> Mailbox</p>
-          </a>
-
-        </div>
-      </div>
-      <hr style="height:8px;border-top:4px solid #af9221">
-      <div class="profile">
-        <div class="heading heading2">
-          <h4 style="color: #af9221;">PROFILE SUMMARY</h4>
-        </div>
-        <br>
-
-        <div>
-          <p>
-            This is a geek, Highly skilled in Python, Web Scraping and Linux. I'm interested in working with data in
-            any form and any field like scraping, engineering and data science. I have some experience in Django,
-            Flask and Deep learning.
-          </p>
-          <br>
-        </div>
-      </div>
-      <hr style="height:8px;border-top:4px solid #af9221">
-      <div class="heading heading2">
-        <h4 style="color: #af9221;">TECHNICAL SKILL</h4>
-      </div>
-      <div class="skills tech-skills">
-        <div class="row">
-          <div class="col-md-12 col-xs-4">
+        <header class="flex flex-col md:flex-row items-center md:justify-between mb-10 pb-6 border-b border-gray-200">
             <div>
-              <p></p>
-              <h5><b>Experienced with:</b></h5><span>     ‌     ‌</span> Python, MySQL and Relational Databases, MongoDB,
-              Scrapy, Linux and Bash Scripting, Git, Flask, Docker.<p></p>
-              <p></p>
-              <h5><b>Familiar with:</b></h5><span>     ‌     ‌</span> Apache Airflow, Data Warehouses, Apache Kafka, PySpark,
-              Hadoop.<p></p>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900">ALIREZA FATHI</h1> 
+                <h2 class="text-xl md:text-2xl font-medium text-blue-600 mt-1">BACK-END DEVELOPER</h2> 
             </div>
-
-          </div>
-
-        </div>
-        <div class="heading heading2">
-          <p></p>
-          <h4 style="color: #af9221;">SOFT SKILL:</h4> <span>     ‌     ‌</span>Analytical Thinking, Observation Skill,
-          Communication Skill, Problem Solving<p></p>
-        </div>
-      </div>
-      <hr style="height:8px;border-top:4px solid #af9221">
-
-      <div class="row">
-        <div class="col-sm-12 col-xs-12">
-          <div class="work-exp" style="margin-top:-10px;">
-            <br>
-            <div class="heading heading2">
-              <h4 style="color: #af9221;">WORK EXPERIENCE</h4>
+            <div class="mt-6 md:mt-0 text-sm md:text-right">
+                <ul class="space-y-2">
+                    <li><a href="mailto:alirezafathi.ce@gmail.com" class="flex items-center justify-start md:justify-end text-gray-700 hover:text-blue-600 transition duration-200"><i class="fas fa-envelope w-5 mr-2 text-blue-500"></i> alirezafathi.ce@gmail.com</a></li> 
+                    <li><a href="tel:+989142406225" class="flex items-center justify-start md:justify-end text-gray-700 hover:text-blue-600 transition duration-200"><i class="fas fa-phone w-5 mr-2 text-blue-500"></i> +98 914 240 6225</a></li> 
+                    <li><a href="https://linkedin.com/in/alirezafathi95" target="_blank" rel="noopener noreferrer" class="flex items-center justify-start md:justify-end text-gray-700 hover:text-blue-600 transition duration-200"><i class="fab fa-linkedin w-5 mr-2 text-blue-500"></i> linkedin.com/in/alirezafathi95</a></li> 
+                    <li><a href="https://github.com/sudoAlireza" target="_blank" rel="noopener noreferrer" class="flex items-center justify-start md:justify-end text-gray-700 hover:text-blue-600 transition duration-200"><i class="fab fa-github w-5 mr-2 text-blue-500"></i> github.com/sudoAlireza</a></li> 
+                    </ul>
             </div>
-            <br>
-            <div class="row jsection" style="padding-bottom:5px;">
-              <div class="col-sm-12 col-xs-12 greybackground">
-                <b><span class="job-title">Python Data Scraper</span> - <span class="company">SnappShop</span> <span
-                    style="float:right;"> Oct 2021 - Present </span></b>
-                <div class="details">
-                  <ul>
-                    <li>
-                      Developed more than 80 spiders for various websites with the Scrapy framework.
-                    </li>
-                    <li>
-                      Build tasks and spiders that scrape 500,000 pages per day.
-                    </li>
-                    <li>
-                      Solved problems with Scrapy-splash and other scrapy extensions.
-                    </li>
-                  </ul>
+        </header>
+
+        <main>
+
+            <section id="about" class="mb-10">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4 section-title">Summary</h3>
+                <p class="text-gray-700">
+                    Back-End Developer with expertise in building and optimizing web applications and APIs, primarily using Python, Django, and FastAPI, and growing expertise in Go. Known for a continuous learning mindset and contributing innovative solutions. At SnappShop, played a key role in the Seller team by enhancing daily product upload efficiency and contributed to the Delivery team by implementing a new hub management system that reduced CPO in targeted cities, and replatforming a Django monolith service to Go microservices. Seeking challenging roles to gain new experiences and continually expand my knowledge in software engineering.
+                </p>
+            </section>
+
+            <section id="experience" class="mb-10">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 section-title">Work Experience</h3>
+                <div class="space-y-8">
+                    <div class="border-l-4 border-blue-500 pl-4 fade-in" style="animation-delay: 0.1s;">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-1">
+                            <h4 class="text-lg font-semibold text-gray-900">Back End Developer</h4>
+                            <span class="text-sm text-gray-500 mt-1 sm:mt-0">October, 2021 - Present</span> 
+                        </div>
+                        <p class="text-md font-medium text-gray-700 mb-2">Snapp!Shop</p> 
+                        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm md:text-base">
+                            <li>Maintaining and troubleshooting the legacy Django-based delivery system, resolving production incidents, fixing bugs, and implementing minor feature enhancements.</li>
+                            <li>Contributed to implementing new hub management system that optimized order delivery by clustering order locations within polygons and dispatching third-party vehicles, resulting in a 40% reduction in CPO in targeted cities.</li>
+                            <li>Working on the replatforming from Python/Django to Go, writing new Go services and helping the team understand the legacy codebase to facilitate the migration.</li>
+                            <li>Optimized data processing systems and developed scalable data pipelines using Python, Flask, Celery, and Airflow, resulting in a 50x increase in daily product uploads.</li>
+                            <li>Implemented an AI system to automatically generate descriptions for 25% of products.</li>
+                        </ul>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4 fade-in" style="animation-delay: 0.2s;">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-1">
+                            <h4 class="text-lg font-semibold text-gray-900">Python Developer</h4>
+                            <span class="text-sm text-gray-500 mt-1 sm:mt-0">March, 2021 - September 2021</span> 
+                        </div>
+                        <p class="text-md font-medium text-gray-700 mb-2">StyleUp</p> 
+                        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm md:text-base">
+                            <li>Developed and maintained Python scripts for web scraping using BeautifulSoup and Selenium, and optimized them for speed and efficiency by leveraging Python's concurrent programming techniques to enhance performance for I/O-bound operations.</li>
+                        </ul>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="row jsection" style="padding-bottom:5px;">
-              <div class="col-sm-12 col-xs-12 greybackground">
-                <b><span class="job-title">Web-Scraping Instructor</span> - <span class="company"><a style="color: black;" href="https://7learn.com/">7Learn</a></span> <span
-                    style="float:right;"> Oct 2022 - Present </span></b>
-                <div class="details">
-                  <ul>
-                    <li>
-                      Recording Web-Scraping course Which includes Scrapy, Selenium and Beautifulsoup
-                    </li>
-                  </ul>
+            </section>
+
+            <section id="skills" class="mb-10">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 section-title">Technical Skills</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="text-lg font-medium text-gray-700 mb-3">Languages & Frameworks</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge inline-block bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Python</span> 
+                            <span class="skill-badge inline-block bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Golang</span> 
+                            <span class="skill-badge inline-block bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full">FastAPI</span> 
+                            <span class="skill-badge inline-block bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">Flask</span> 
+                            <span class="skill-badge inline-block bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Django</span> 
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-medium text-gray-700 mb-3">Databases</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge inline-block bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">MySQL</span> 
+                            <span class="skill-badge inline-block bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">PostgreSQL</span> 
+                            <span class="skill-badge inline-block bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">PostGIS</span> 
+                            <span class="skill-badge inline-block bg-pink-100 text-pink-800 text-sm font-medium px-3 py-1 rounded-full">MongoDB</span> 
+                            <span class="skill-badge inline-block bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Redis</span> 
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-medium text-gray-700 mb-3">Tools & Technologies</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge inline-block bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Celery</span> 
+                            <span class="skill-badge inline-block bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Asynq</span> 
+                            <span class="skill-badge inline-block bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Airflow</span> 
+                            <span class="skill-badge inline-block bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full">Docker</span> 
+                            <span class="skill-badge inline-block bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Nginx</span> 
+                            <span class="skill-badge inline-block bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">Git</span> 
+                            <span class="skill-badge inline-block bg-yellow-100 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full">Gitlab CI</span> 
+                            <span class="skill-badge inline-block bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full">Kubernetes</span> 
+                            <span class="skill-badge inline-block bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full">Scrapy</span> 
+                            <span class="skill-badge inline-block bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full">BS (BeautifulSoup)</span> 
+                            <span class="skill-badge inline-block bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full">Selenium</span> 
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-medium text-gray-700 mb-3">Other Skills & Concepts</h4>
+                         <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge inline-block bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full">OOP</span> 
+                            <span class="skill-badge inline-block bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full">SOLID Principles</span> 
+                            <span class="skill-badge inline-block bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full">Concurrency in Python</span> 
+                            <span class="skill-badge inline-block bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full">Agile Methodology</span> 
+                            <span class="skill-badge inline-block bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full">Creative Thinking</span> 
+                            <span class="skill-badge inline-block bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full">Observation Skills</span> 
+                         </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="row jsection" style="padding-bottom:5px;">
-              <div class="col-sm-12 col-xs-12 greybackground">
-                <b><span class="job-title"> Junior Python Developer </span> - <span class="company">StyleUp</span><span
-                    style="float:right;"> March 2021 - Sep 2021 </span></b>
-                <div class="details">
-                  <ul>
-                    <li>
-                      Scraped websites with Requests, Beautifulsoup and Selenium.
-                    </li>
-                    <li>
-                      Worked with Python Multi-threading for solving Requests speed problem.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            </section>
 
-          </div>
-        </div>
-      </div>
-      <hr style="height:8px;border-top:4px solid #af9221">
+            <section id="education" class="mb-6">
+                 <h3 class="text-2xl font-semibold text-gray-800 mb-6 section-title">Education</h3>
+                 <div class="space-y-4">
+                     <div class="fade-in" style="animation-delay: 0.5s;">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-1">
+                            <h4 class="text-lg font-semibold text-gray-900">BSc in Computer Science</h4> 
+                             <span class="text-sm text-gray-500 mt-1 sm:mt-0">2019-2022</span> 
+                        </div>
+                        <p class="text-md font-medium text-gray-700">University of Tabriz</p> 
+                    </div>
+                     <div class="fade-in" style="animation-delay: 0.6s;">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-1">
+                            <h4 class="text-lg font-semibold text-gray-900">BSc in Electrical Engineering (incomplete)</h4> 
+                            <span class="text-sm text-gray-500 mt-1 sm:mt-0">2013-2018</span> 
+                        </div>
+                         <p class="text-md font-medium text-gray-700">University of Tabriz</p> 
+                    </div>
+                 </div>
+            </section>
 
+        </main>
 
+        <footer class="text-center text-sm text-gray-500 pt-6 mt-10 border-t border-gray-200">
+            <p>&copy; 2025 Alireza Fathi. All rights reserved.</p>
+            <p class="mt-1 no-print">Built with HTML, TailwindCSS, and <i class="fas fa-heart text-red-500"></i>.</p>
+        </footer>
 
-
-      <div class="row">
-        <div class="col-sm-12 col-xs-12">
-          <div class="work-exp" style="margin-top:-10px;">
-            <br>
-            <div class="heading heading2">
-              <h4 style="color: #af9221;">EDUCATION</h4>
-            </div>
-            <div class="row jsection" style="padding-bottom:5px;">
-              <div class="col-sm-12 col-xs-12 greybackground">
-                <b><span class="university">Tabriz University - Tabriz, Iran</span> - <span class="field">Computer
-                    Science</span> <span style="float:right;"> Sep 2019 - Now </span></b>
-                <div class="details">
-                  <p>
-                    <span>     ‌     ‌</span> My Bachelor Thesis is about gathering 10 million records of data as a dataset and
-                    building a computer vision model with CNN.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <hr style="height:8px;border-top:4px solid #af9221">
-
-
-
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-
-
+         <div class="text-center my-6 no-print">
+             <button id="download-pdf-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200">
+                 <i class="fas fa-file-pdf mr-2"></i> Download PDF
+             </button>
+         </div>
 
     </div>
-    <footer class="bg-light text-dark-50 text-center mt-5 p-3" id="footer" style="margin-top: auto;">
-      © 2023 Alireza Fathi - <a href="https://github.com/sudoalireza/" class="text-dark-50">GitHub</a> | <a
-        href="https://www.linkedin.com/in/alirezafathi95/" class="text-dark-50">LinkedIn</a>
-    </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  </body>
+    <script>
+        document.getElementById('download-pdf-btn').addEventListener('click', function () {
+        
+            const element = document.querySelector('.max-w-5xl');
+            const opt = {
+              margin:       [0.5, 0.5, 0.5, 0.5],
+              filename:     'AlirezaFathi_Backend_Developer_Resume.pdf',
+              image:        { type: 'jpeg', quality: 0.98 },
+              html2canvas:  { scale: 2, useCORS: true, logging: true, letterRendering: true,
+                            
+                                ignoreElements: (element) => { return element.id === 'download-pdf-btn' || element.classList.contains('no-print'); }
+                             },
+              jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+        
+            this.disabled = true;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Generating PDF...';
+
+        
+            html2pdf().set(opt).from(element).save().then(() => {
+            
+                this.disabled = false;
+                this.innerHTML = '<i class="fas fa-file-pdf mr-2"></i> Download PDF';
+                console.log('PDF generated successfully!');
+            }).catch(err => {
+                console.error('Error generating PDF:', err);
+                this.disabled = false;
+                 this.innerHTML = '<i class="fas fa-file-pdf mr-2"></i> Download PDF';
+                alert('Sorry, there was an error generating the PDF.');
+            });
+        });
+        console.log("Resume loaded successfully!");
+    </script>
+
+</body>
 </html>
