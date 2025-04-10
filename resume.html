@@ -3,229 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alireza Fathi - Backend Developer</title>
+    <title>Alireza Fathi - Backend Developer Resume</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        /* Custom styles can go here if Tailwind isn't sufficient */
-        body {
-            font-family: 'Inter', sans-serif; /* Example: Using a nice sans-serif font */
-            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
-        }
-        /* Add a subtle gradient background */
-        body {
-            background: linear-gradient(to bottom right, #f3f4f6, #e5e7eb);
-        }
-        /* Custom underline effect for section titles */
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background-color: #3b82f6; /* Tailwind blue-500 */
-            margin-top: 8px;
-        }
-        /* Style for skill badges */
-        .skill-badge {
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-        .skill-badge:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        /* Simple animation for page load */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
-    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e2e8f0;
+            color: #2d3748;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.7;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.4);
+            border-radius: 0.375rem;
+        }
+
+        .resume-container {
+            background-color: #fdfdfd;
+        }
+
+        .section-heading {
+             @apply text-base font-semibold text-indigo-600 uppercase tracking-widest pb-2 mb-2;
+        }
+
+        .section-heading::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: #a5b4fc;
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-item ul {
+            @apply list-disc list-outside ml-5 text-sm text-slate-600 space-y-1 leading-relaxed;
+        }
+
+        .skill-category-title {
+             @apply text-sm font-semibold text-slate-700 mb-2; /* Added slightly more margin-bottom */
+        }
+
+        .skill-tag {
+             @apply inline-block border border-slate-200 bg-white text-slate-700 text-xs font-medium px-2.5 py-0.5 rounded-md shadow-sm; /* Subtle shadow added */
+             /* transition: all 0.15s ease-in-out; */ /* Optional: subtle hover effect */
+        }
+         /* Optional hover effect
+         .skill-tag:hover {
+             transform: translateY(-1px);
+             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+         } */
+
+
+        @media print {
+            @page { margin: 0.75in; }
+            .no-print { display: none !important; }
+            body { background: #fff; color: #222; font-size: 10pt; line-height: 1.5; }
+            .resume-container { margin: 0; padding: 0; box-shadow: none; border: none; max-width: 100%; background-color: #fff; }
+            .sidebar { background-color: transparent !important; padding: 0 !important; border: none !important; }
+            .main-content { padding: 0 !important; }
+            .lg\:grid { display: grid !important; }
+            .lg\:grid-cols-10 { grid-template-columns: repeat(10, minmax(0, 1fr)) !important; }
+            .lg\:col-span-3 { grid-column: span 3 / span 3 !important; }
+            .lg\:col-span-7 { grid-column: span 7 / span 7 !important; }
+            .section-heading { color: #222 !important; font-size: 11pt; margin-bottom: 0.25rem; padding-bottom: 0.25rem; }
+            .section-heading::after { display: none; }
+            h1 { font-size: 20pt !important; }
+            h2 { font-size: 13pt !important; color: #4f46e5 !important; }
+            h4 { font-size: 10pt !important; }
+            p, li, span { font-size: 9.5pt !important; }
+            #experience ul { list-style: disc !important; list-style-position: outside !important; margin-left: 1rem !important; }
+             #experience ul li { margin-bottom: 0.25rem; }
+            a { color: #4f46e5; text-decoration: none; }
+            .sidebar ul li { margin-bottom: 0.5rem; }
+            #phone-reveal-link::before { content: attr(data-phone-decoded); color: #4f46e5; }
+            #phone-reveal-link span { display: none; }
+            .skill-tag { border: 1px solid #ccc; padding: 1px 4px; box-shadow: none; background: transparent; margin: 1px; } /* Simple print style for tags */
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-800 leading-relaxed">
+<body class="text-sm">
 
-    <div class="max-w-5xl mx-auto p-6 md:p-10 lg:p-12 bg-white shadow-xl rounded-lg my-10 fade-in">
+    <div class="resume-container max-w-5xl mx-auto shadow-xl rounded-lg my-16 overflow-hidden">
 
-        <header class="flex flex-col md:flex-row items-center md:justify-between mb-10 pb-6 border-b border-gray-200">
-            <div>
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-900">ALIREZA FATHI</h1> 
-                <h2 class="text-xl md:text-2xl font-medium text-blue-600 mt-1">BACK-END DEVELOPER</h2> 
-            </div>
-            <div class="mt-6 md:mt-0 text-sm md:text-right">
-                <ul class="space-y-2">
-                    <li><a href="mailto:alirezafathi.ce@gmail.com" class="flex items-center justify-start md:justify-end text-gray-700 hover:text-blue-600 transition duration-200"><i class="fas fa-envelope w-5 mr-2 text-blue-500"></i> alirezafathi.ce@gmail.com</a></li> 
-                    <li><a href="tel:+989142406225" class="flex items-center justify-start md:justify-end text-gray-700 hover:text-blue-600 transition duration-200"><i class="fas fa-phone w-5 mr-2 text-blue-500"></i> +98 914 240 6225</a></li> 
-                    <li><a href="https://linkedin.com/in/alirezafathi95" target="_blank" rel="noopener noreferrer" class="flex items-center justify-start md:justify-end text-gray-700 hover:text-blue-600 transition duration-200"><i class="fab fa-linkedin w-5 mr-2 text-blue-500"></i> linkedin.com/in/alirezafathi95</a></li> 
-                    <li><a href="https://github.com/sudoAlireza" target="_blank" rel="noopener noreferrer" class="flex items-center justify-start md:justify-end text-gray-700 hover:text-blue-600 transition duration-200"><i class="fab fa-github w-5 mr-2 text-blue-500"></i> github.com/sudoAlireza</a></li> 
+        <div class="lg:grid lg:grid-cols-10">
+
+            <aside class="sidebar lg:col-span-3 bg-slate-50 p-10 lg:p-12 border-r border-slate-100">
+
+                <div class="mb-12 text-center lg:text-left">
+                    <h1 class="text-3xl font-bold text-slate-900 tracking-tight leading-tight">ALIREZA FATHI</h1>
+                    <h2 class="text-lg font-medium text-indigo-600 mt-1 tracking-wide">BACK-END DEVELOPER</h2>
+                </div>
+
+                <section class="mb-10">
+                    <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Contact</h3>
+                    <ul class="space-y-3 text-xs text-slate-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope fa-fw w-4 mr-3 mt-0.5 text-slate-400"></i>
+                            <a href="#"
+                            id="email-reveal-link"
+                            data-email-hashed="YWxpcmV6YWZhdGhpLmNlQGdtYWlsLmNvbQ=="
+                            class="cursor-pointer hover:text-indigo-600 transition duration-150">
+                            <span class="italic text-slate-500">Click to reveal email</span>
+                        </a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone fa-fw w-4 mr-3 mt-0.5 text-slate-400"></i>
+                            <a href="#"
+                               id="phone-reveal-link"
+                               data-phone-hashed="Kzk4OTE0MjQwNjIyNQ=="
+                               class="cursor-pointer hover:text-indigo-600 transition duration-150">
+                               <span class="italic text-slate-500">Click to reveal phone</span>
+                            </a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fab fa-linkedin fa-fw w-4 mr-3 mt-0.5 text-slate-400"></i>
+                            <a href="https://linkedin.com/in/alirezafathi95" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 transition duration-150 break-all">linkedin.com/in/alirezafathi95</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fab fa-github fa-fw w-4 mr-3 mt-0.5 text-slate-400"></i>
+                            <a href="https://github.com/sudoAlireza" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 transition duration-150">github.com/sudoAlireza</a>
+                        </li>
                     </ul>
-            </div>
-        </header>
+                </section>
 
-        <main>
-
-            <section id="about" class="mb-10">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-4 section-title">Summary</h3>
-                <p class="text-gray-700">
-                    Back-End Developer with expertise in building and optimizing web applications and APIs, primarily using Python, Django, and FastAPI, and growing expertise in Go. Known for a continuous learning mindset and contributing innovative solutions. At SnappShop, played a key role in the Seller team by enhancing daily product upload efficiency and contributed to the Delivery team by implementing a new hub management system that reduced CPO in targeted cities, and replatforming a Django monolith service to Go microservices. Seeking challenging roles to gain new experiences and continually expand my knowledge in software engineering.
-                </p>
-            </section>
-
-            <section id="experience" class="mb-10">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6 section-title">Work Experience</h3>
-                <div class="space-y-8">
-                    <div class="border-l-4 border-blue-500 pl-4 fade-in" style="animation-delay: 0.1s;">
-                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-1">
-                            <h4 class="text-lg font-semibold text-gray-900">Back End Developer</h4>
-                            <span class="text-sm text-gray-500 mt-1 sm:mt-0">October, 2021 - Present</span> 
+                <section class="mb-10">
+                    <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-5">Skills</h3>
+                    <div class="space-y-5">
+                        <div>
+                            <h4 class="skill-category-title">Languages & Frameworks:</h4>
+                            <div class="flex flex-wrap gap-x-2 gap-y-1.5">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Go</span>
+                                <span class="skill-tag">Django</span>
+                                <span class="skill-tag">FastAPI</span>
+                                <span class="skill-tag">Flask</span>
+                            </div>
                         </div>
-                        <p class="text-md font-medium text-gray-700 mb-2">Snapp!Shop</p> 
-                        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm md:text-base">
-                            <li>Maintaining and troubleshooting the legacy Django-based delivery system, resolving production incidents, fixing bugs, and implementing minor feature enhancements.</li>
-                            <li>Contributed to implementing new hub management system that optimized order delivery by clustering order locations within polygons and dispatching third-party vehicles, resulting in a 40% reduction in CPO in targeted cities.</li>
-                            <li>Working on the replatforming from Python/Django to Go, writing new Go services and helping the team understand the legacy codebase to facilitate the migration.</li>
-                            <li>Optimized data processing systems and developed scalable data pipelines using Python, Flask, Celery, and Airflow, resulting in a 50x increase in daily product uploads.</li>
-                            <li>Implemented an AI system to automatically generate descriptions for 25% of products.</li>
-                        </ul>
-                    </div>
-                    <div class="border-l-4 border-blue-500 pl-4 fade-in" style="animation-delay: 0.2s;">
-                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-1">
-                            <h4 class="text-lg font-semibold text-gray-900">Python Developer</h4>
-                            <span class="text-sm text-gray-500 mt-1 sm:mt-0">March, 2021 - September 2021</span> 
+                        <div>
+                            <h4 class="skill-category-title">Databases:</h4>
+                             <div class="flex flex-wrap gap-x-2 gap-y-1.5">
+                                <span class="skill-tag">MySQL</span>
+                                <span class="skill-tag">PostgreSQL</span>
+                                <span class="skill-tag">PostGIS</span>
+                                <span class="skill-tag">MongoDB</span>
+                                <span class="skill-tag">Redis</span>
+                            </div>
                         </div>
-                        <p class="text-md font-medium text-gray-700 mb-2">StyleUp</p> 
-                        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm md:text-base">
-                            <li>Developed and maintained Python scripts for web scraping using BeautifulSoup and Selenium, and optimized them for speed and efficiency by leveraging Python's concurrent programming techniques to enhance performance for I/O-bound operations.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section id="skills" class="mb-10">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6 section-title">Technical Skills</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <h4 class="text-lg font-medium text-gray-700 mb-3">Languages & Frameworks</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-badge inline-block bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Python</span> 
-                            <span class="skill-badge inline-block bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Golang</span> 
-                            <span class="skill-badge inline-block bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full">FastAPI</span> 
-                            <span class="skill-badge inline-block bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">Flask</span> 
-                            <span class="skill-badge inline-block bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Django</span> 
+                        <div>
+                            <h4 class="skill-category-title">Tools & Technologies:</h4>
+                            <div class="flex flex-wrap gap-x-2 gap-y-1.5">
+                                <span class="skill-tag">Celery</span>
+                                <span class="skill-tag">Asynq</span>
+                                <span class="skill-tag">Airflow</span>
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">Kubernetes</span>
+                                <span class="skill-tag">Nginx</span>
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">Gitlab CI</span>
+                                <span class="skill-tag">Scrapy</span>
+                                <span class="skill-tag">BeautifulSoup</span>
+                                <span class="skill-tag">Selenium</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="skill-category-title">Concepts:</h4>
+                             <div class="flex flex-wrap gap-x-2 gap-y-1.5">
+                                <span class="skill-tag">OOP</span>
+                                <span class="skill-tag">SOLID Principles</span>
+                                <span class="skill-tag">Concurrency</span>
+                                <span class="skill-tag">Agile Methodology</span>
+                                <span class="skill-tag">Creative Thinking</span>
+                                <span class="skill-tag">Observation</span>
+                             </div>
                         </div>
                     </div>
-                    <div>
-                        <h4 class="text-lg font-medium text-gray-700 mb-3">Databases</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-badge inline-block bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">MySQL</span> 
-                            <span class="skill-badge inline-block bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">PostgreSQL</span> 
-                            <span class="skill-badge inline-block bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">PostGIS</span> 
-                            <span class="skill-badge inline-block bg-pink-100 text-pink-800 text-sm font-medium px-3 py-1 rounded-full">MongoDB</span> 
-                            <span class="skill-badge inline-block bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Redis</span> 
-                        </div>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-medium text-gray-700 mb-3">Tools & Technologies</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-badge inline-block bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Celery</span> 
-                            <span class="skill-badge inline-block bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Asynq</span> 
-                            <span class="skill-badge inline-block bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Airflow</span> 
-                            <span class="skill-badge inline-block bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full">Docker</span> 
-                            <span class="skill-badge inline-block bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Nginx</span> 
-                            <span class="skill-badge inline-block bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">Git</span> 
-                            <span class="skill-badge inline-block bg-yellow-100 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full">Gitlab CI</span> 
-                            <span class="skill-badge inline-block bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full">Kubernetes</span> 
-                            <span class="skill-badge inline-block bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full">Scrapy</span> 
-                            <span class="skill-badge inline-block bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full">BS (BeautifulSoup)</span> 
-                            <span class="skill-badge inline-block bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full">Selenium</span> 
-                        </div>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-medium text-gray-700 mb-3">Other Skills & Concepts</h4>
-                         <div class="flex flex-wrap gap-2">
-                            <span class="skill-badge inline-block bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full">OOP</span> 
-                            <span class="skill-badge inline-block bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full">SOLID Principles</span> 
-                            <span class="skill-badge inline-block bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full">Concurrency in Python</span> 
-                            <span class="skill-badge inline-block bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full">Agile Methodology</span> 
-                            <span class="skill-badge inline-block bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full">Creative Thinking</span> 
-                            <span class="skill-badge inline-block bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full">Observation Skills</span> 
-                         </div>
-                    </div>
-                </div>
-            </section>
+                </section>
 
-            <section id="education" class="mb-6">
-                 <h3 class="text-2xl font-semibold text-gray-800 mb-6 section-title">Education</h3>
-                 <div class="space-y-4">
-                     <div class="fade-in" style="animation-delay: 0.5s;">
-                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-1">
-                            <h4 class="text-lg font-semibold text-gray-900">BSc in Computer Science</h4> 
-                             <span class="text-sm text-gray-500 mt-1 sm:mt-0">2019-2022</span> 
+                <section>
+                    <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Education</h3>
+                    <div class="space-y-4 text-xs">
+                         <div>
+                            <h4 class="font-medium text-slate-800">BSc, Computer Science</h4>
+                            <p class="text-slate-600">University of Tabriz</p>
+                            <p class="text-slate-500">2019 - 2022</p>
                         </div>
-                        <p class="text-md font-medium text-gray-700">University of Tabriz</p> 
-                    </div>
-                     <div class="fade-in" style="animation-delay: 0.6s;">
-                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-1">
-                            <h4 class="text-lg font-semibold text-gray-900">BSc in Electrical Engineering (incomplete)</h4> 
-                            <span class="text-sm text-gray-500 mt-1 sm:mt-0">2013-2018</span> 
+                         <div>
+                            <h4 class="font-medium text-slate-800">BSc, Electrical Engineering <span class="italic">(Inc.)</span></h4>
+                            <p class="text-slate-600">University of Tabriz</p>
+                            <p class="text-slate-500">2013 - 2018</p>
                         </div>
-                         <p class="text-md font-medium text-gray-700">University of Tabriz</p> 
                     </div>
-                 </div>
-            </section>
+                </section>
 
-        </main>
+            </aside>
 
-        <footer class="text-center text-sm text-gray-500 pt-6 mt-10 border-t border-gray-200">
-            <p>&copy; <span id="current-year"></span>  Alireza Fathi. All rights reserved.</p>
-            <p class="mt-1 no-print">Built with HTML, TailwindCSS, and <i class="fas fa-heart text-red-500"></i>.</p>
-        </footer>
+            <main class="main-content lg:col-span-7 p-10 lg:p-16">
+
+                <section id="about" class="mb-12">
+                    <h3 class="section-heading">Summary</h3>
+                    <p class="text-slate-700 text-base leading-relaxed">
+                        Back-End Developer with expertise in building and optimizing web applications and APIs, primarily using Python, Django, and FastAPI, and growing expertise in Go. Known for a continuous learning mindset and contributing innovative solutions. At SnappShop, played a key role in the Seller team by enhancing daily product upload efficiency and contributed to the Delivery team by implementing a new hub management system that reduced CPO in targeted cities, and replatforming a Django monolith service to Go microservices. Seeking challenging roles to gain new experiences and continually expand my knowledge in software engineering. 
+                    </p>
+                </section>
+
+                <section id="experience">
+                    <h3 class="section-heading">Work Experience</h3>
+                    <div class="space-y-10">
+                        <div class="experience-item">
+                            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
+                                <h4 class="text-lg font-semibold text-slate-800">Back End Developer</h4>
+                                <span class="text-xs font-medium text-slate-500 mt-1 sm:mt-0 uppercase tracking-wider">Oct 2021 - Present</span>
+                            </div>
+                            <p class="text-sm font-medium text-slate-600 mb-3">Snapp!Shop</p>
+                            <ul class="list-disc list-outside ml-5 space-y-1 text-sm text-slate-600 leading-relaxed">
+                                <li>Maintaining and troubleshooting the legacy Django-based delivery system, resolving production incidents, fixing bugs, and implementing minor feature enhancements.</li>
+                                <li>Contributed to implementing new hub management system that optimized order delivery by clustering order locations within polygons and dispatching third-party vehicles, resulting in a 40% reduction in CPO in targeted cities.</li>
+                                <li>Working on the replatforming from Python/Django to Go, writing new Go services and helping the team understand the legacy codebase to facilitate the migration.</li>
+                                <li>Optimized data processing systems and developed scalable data pipelines using Python, Flask, Celery, and Airflow, resulting in a 50x increase in daily product uploads.</li>
+                                <li>Implemented an AI system to automatically generate descriptions for 25% of products.</li>
+                            </ul>
+                        </div>
+                        <div class="experience-item">
+                             <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
+                                <h4 class="text-lg font-semibold text-slate-800">Python Developer</h4>
+                                <span class="text-xs font-medium text-slate-500 mt-1 sm:mt-0 uppercase tracking-wider">Mar 2021 - Sep 2021</span>
+                            </div>
+                            <p class="text-sm font-medium text-slate-600 mb-3">StyleUp</p>
+                             <ul class="list-disc list-outside ml-5 space-y-1 text-sm text-slate-600 leading-relaxed">
+                                <li>Developed and maintained Python scripts for web scraping using BeautifulSoup and Selenium, and optimized them for speed and efficiency by leveraging Python's concurrent programming techniques to enhance performance for I/O-bound operations.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+
+        </div>
 
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     <script>
-        document.getElementById('download-pdf-btn').addEventListener('click', function () {
-        
-            const element = document.querySelector('.max-w-5xl');
-            const opt = {
-              margin:       [0.5, 0.5, 0.5, 0.5],
-              filename:     'AlirezaFathi_Backend_Developer_Resume.pdf',
-              image:        { type: 'jpeg', quality: 0.98 },
-              html2canvas:  { scale: 2, useCORS: true, logging: true, letterRendering: true,
-                            
-                                ignoreElements: (element) => { return element.id === 'download-pdf-btn' || element.classList.contains('no-print'); }
-                             },
-              jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-            };
-
-        
-            this.disabled = true;
-            this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Generating PDF...';
-
-        
-            html2pdf().set(opt).from(element).save().then(() => {
-            
-                this.disabled = false;
-                this.innerHTML = '<i class="fas fa-file-pdf mr-2"></i> Download PDF';
-                console.log('PDF generated successfully!');
-            }).catch(err => {
-                console.error('Error generating PDF:', err);
-                this.disabled = false;
-                 this.innerHTML = '<i class="fas fa-file-pdf mr-2"></i> Download PDF';
-                alert('Sorry, there was an error generating the PDF.');
+        const phoneLink = document.getElementById('phone-reveal-link');
+        if (phoneLink) {
+            phoneLink.addEventListener('click', function revealPhone(event) {
+                event.preventDefault();
+                const hashedPhone = this.getAttribute('data-phone-hashed');
+                if (hashedPhone) {
+                    try {
+                        const phoneNumber = atob(hashedPhone);
+                        this.textContent = phoneNumber;
+                        this.setAttribute('href', 'tel:' + phoneNumber);
+                        this.setAttribute('data-phone-decoded', phoneNumber);
+                        this.removeEventListener('click', revealPhone);
+                        this.classList.remove('cursor-pointer', 'italic', 'text-slate-500');
+                    } catch (e) {
+                        console.error("Failed to decode phone number:", e);
+                        this.textContent = "[Error revealing number]";
+                    }
+                }
             });
-        });
-        console.log("Resume loaded successfully!");
+        }
 
-    </script>
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        const emailLink = document.getElementById('email-reveal-link');
+        if (emailLink) {
+            emailLink.addEventListener('click', function revealEmail(event) {
+                event.preventDefault();
+                const hashedEmail = this.getAttribute('data-email-hashed');
+                if (hashedEmail) {
+                    try {
+                        const emailAddress = atob(hashedEmail);
+                        this.textContent = emailAddress;
+                        this.setAttribute('href', 'mailto:' + emailAddress);
+                        this.setAttribute('data-email-decoded', emailAddress); // For print CSS
+                        this.removeEventListener('click', revealEmail);
+                        this.classList.remove('cursor-pointer', 'italic', 'text-slate-500');
+                    } catch (e) {
+                        console.error("Failed to decode email:", e);
+                        this.textContent = "[Error revealing email]";
+                    }
+                }
+            });
+        }
+
+        console.log("Resume loaded!");
     </script>
 
 </body>
