@@ -26,7 +26,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/favicon/site.webmanifest">
-    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#4f46e5">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#06b6d4">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 
@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/three@0.131.2/build/three.min.js"></script>
 
 
@@ -42,27 +42,20 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #e2e8f0;
-            color: #2d3748;
+            color: #1e293b;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             overflow: hidden;
             margin: 0;
-            
         }
 
         #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; pointer-events: none;
         }
 
         main, footer {
-            position: relative;
-            z-index: 1;
+            position: relative; z-index: 1;
         }
 
         @keyframes fadeInCard {
@@ -81,45 +74,57 @@
              0%, 100% { transform: translateY(0); }
              50% { transform: translateY(-3px); }
         }
+         @keyframes textGlitchSubtle {
+            0%   { transform: translate(0, 0); text-shadow: 1px 1px 0 #f43f5e, -1px -1px 0 #06b6d4; }
+            25%  { transform: translate(0.5px, -0.5px); text-shadow: -1px 1px 0 #f43f5e, 1px -1px 0 #06b6d4; }
+            50%  { transform: translate(-0.5px, 0.5px); text-shadow: 1px -1px 0 #f43f5e, -1px 1px 0 #06b6d4; }
+            75%  { transform: translate(0.5px, 0.5px); text-shadow: -1px -1px 0 #f43f5e, 1px 1px 0 #06b6d4; }
+            100% { transform: translate(0, 0); text-shadow: 1px 1px 0 #f43f5e, -1px -1px 0 #06b6d4; }
+         }
 
         .fade-in-card {
             animation: fadeInCard 1s 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
             opacity: 0;
             transform-style: preserve-3d;
-            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease-out;
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease-out, border-color 0.4s ease-out;
             background-color: rgba(253, 253, 253, 0.93);
-             @apply backdrop-blur-sm;
+             @apply backdrop-blur-sm shadow-xl rounded-lg border border-slate-300;
         }
+         .fade-in-card:hover {
+             @apply border-cyan-500 shadow-2xl; /* Enhanced shadow on hover */
+         }
+
         .fade-in-content {
             animation: fadeInContent 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
             opacity: 0;
         }
         .letter-span {
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(10px);
+            display: inline-block; opacity: 0; transform: translateY(10px);
+        }
+
+        #title-heading:hover {
+             animation: textGlitchSubtle 0.3s infinite linear alternate-reverse;
         }
 
         a:focus-visible,
         button:focus-visible {
-            outline: 2px solid transparent;
-            outline-offset: 2px;
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.4);
+            outline: 2px solid transparent; outline-offset: 2px;
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.5);
             border-radius: 0.375rem;
         }
 
         .btn-base {
-             @apply w-full sm:w-auto inline-flex items-center justify-center text-sm font-semibold py-2.5 px-6 rounded-md transform transition-all duration-250 ease-out;
+             @apply w-full sm:w-auto inline-flex items-center justify-center text-sm font-semibold py-2.5 px-6 rounded-md transform transition-all duration-250 ease-out hover:-translate-y-1;
         }
         .btn-primary {
-            @apply btn-base bg-indigo-600 hover:bg-gradient-to-br hover:from-indigo-600 hover:to-indigo-700 text-white shadow-sm hover:shadow-lg hover:-translate-y-1;
+            @apply btn-base bg-cyan-500 hover:bg-cyan-400 text-slate-900 shadow-sm hover:shadow-md;
         }
         .btn-secondary {
-             @apply btn-base relative overflow-hidden border border-slate-300 hover:border-slate-400 text-slate-700 hover:text-slate-900 z-0 hover:-translate-y-1 hover:shadow;
+             @apply btn-base relative overflow-hidden border border-slate-400 text-slate-600 hover:border-cyan-500 hover:text-cyan-600 z-0 hover:shadow-sm;
         }
         .btn-secondary::before {
             content: ''; position: absolute; top: 0; left: 0; width: 0; height: 100%;
-            background-color: #f8fafc;
+            background-color: rgba(207, 250, 254, 0.2);
             transition: width 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
              z-index: -1;
         }
@@ -129,7 +134,7 @@
          }
 
         .avatar-dynamic {
-             @apply transition-all duration-300 ease-out hover:scale-110 hover:shadow-lg hover:border-indigo-300 hover:rotate-[-4deg];
+             @apply transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg hover:border-indigo-300 hover:rotate-[-4deg];
         }
     </style>
 </head>
@@ -139,21 +144,21 @@
 
     <main class="flex-grow flex items-center justify-center p-6 md:p-10 lg:p-12 perspective">
 
-        <div id="profile-card" class="p-10 md:p-12 lg:p-16 rounded-lg shadow-xl text-center max-w-3xl w-full fade-in-card hover:shadow-2xl">
+        <div id="profile-card" class="p-10 md:p-12 lg:p-16 rounded-lg shadow-xl text-center max-w-3xl w-full fade-in-card">
 
             <div class="mb-6">
                 <img class="w-32 h-32 lg:w-36 lg:h-36 rounded-full mx-auto border-4 border-slate-100 object-cover avatar-dynamic" src="assets/avatar.jpg" alt="Alireza Fathi">
             </div>
 
-            <h1 id="name-heading" class="text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-1">
+            <h1 id="name-heading" class="font-poppins text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-1">
                 Alireza Fathi
             </h1>
 
-            <h2 id="title-heading" class="text-xl lg:text-2xl font-medium text-indigo-600 tracking-wide mb-8">
+            <h2 id="title-heading" class="font-poppins text-xl lg:text-2xl font-medium text-cyan-600 tracking-wide mb-8 cursor-default">
                  Backend Developer
             </h2>
 
-            <p class="text-slate-700 mb-10 leading-relaxed max-w-xl mx-auto text-base lg:text-lg fade-in-content" style="animation-delay: 0.8s;">
+            <p class="font-mono text-slate-600 mb-10 leading-relaxed max-w-xl mx-auto text-sm lg:text-base fade-in-content" style="animation-delay: 0.8s;">
                 Building and optimizing robust web applications and APIs with expertise in Python, Go, Django, and FastAPI. Passionate about continuous learning and contributing innovative solutions in software engineering.
             </p>
 
@@ -220,7 +225,7 @@
              const x = clientX - left; const y = clientY - top;
              const centerX = width / 2; const centerY = height / 2;
              const deltaX = x - centerX; const deltaY = y - centerY;
-             const tiltSensitivity = 0.035;
+             const tiltSensitivity = 0.03;
              const rotateY = deltaX * tiltSensitivity;
              const rotateX = -deltaY * tiltSensitivity;
              card.style.transform = `perspective(1200px) translateX(${currentCardOffsetX}px) translateY(${currentCardOffsetY}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
@@ -232,90 +237,123 @@
              card.style.boxShadow = '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)';
          };
 
-        let scene, camera, renderer, particles, particleGeometry, particleMaterial;
-        let particlePositions, particleOrigPositions, particleVelocities, particleColors, particleOrigColors;
+        let scene, camera, renderer, nodes, lines, nodeGeometry, nodeMaterial, lineGeometry, lineMaterial;
+        let nodePositions, nodeOrigPositions, nodeVelocities, nodeColors, nodeOrigColors;
+        let edges = []; 
         const mouse3D = new THREE.Vector2();
         const raycaster = new THREE.Raycaster();
         const clock = new THREE.Clock();
         let mouseWorldPos = new THREE.Vector3();
-        let clickEffect = { active: false, position: new THREE.Vector3(), time: 0, strength: 2.0, radius: 7 }; 
+        let clickEffect = { active: false, position: new THREE.Vector3(), time: 0, strength: 2.5, radius: 8 }; 
+        const clickColor = new THREE.Color(0x22d3ee); 
 
         function initThreeJS() {
             const canvas = document.getElementById('bg-canvas');
-            if (!canvas || typeof THREE === 'undefined') {
-                console.error("Canvas or Three.js missing.");
-                return;
-            }
+            if (!canvas || typeof THREE === 'undefined') return;
 
             try {
                 scene = new THREE.Scene();
-                camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
-                camera.position.z = 30;
+                scene.fog = new THREE.FogExp2(0xe2e8f0, 0.02); 
+
+                camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+                camera.position.z = 40; 
 
                 renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
                 renderer.setSize(window.innerWidth, window.innerHeight);
                 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-                const particleCount = 2000; 
-                particlePositions = new Float32Array(particleCount * 3);
-                particleOrigPositions = new Float32Array(particleCount * 3);
-                particleVelocities = new Float32Array(particleCount * 3);
-                particleColors = new Float32Array(particleCount * 3);
-                particleOrigColors = new Float32Array(particleCount * 3);
+                const nodeCount = 300; 
+                const connectionDistance = 8; 
+                const maxConnections = 5; 
 
-                const color1 = new THREE.Color(0x4f46e5); 
-                const color2 = new THREE.Color(0xa5b4fc); 
+                nodePositions = new Float32Array(nodeCount * 3);
+                nodeOrigPositions = new Float32Array(nodeCount * 3);
+                nodeVelocities = new Float32Array(nodeCount * 3);
+                nodeColors = new Float32Array(nodeCount * 3);
+                nodeOrigColors = new Float32Array(nodeCount * 3);
+
+                const color1 = new THREE.Color(0x06b6d4); 
+                const color2 = new THREE.Color(0x67e8f9); 
                 const color3 = new THREE.Color(0x94a3b8); 
 
-                const radius = 55;
-                for (let i = 0; i < particleCount; i++) {
+                const radius = 30; 
+                const tempNodePos = []; 
+                for (let i = 0; i < nodeCount; i++) {
                     const i3 = i * 3;
-                    const GoldenAngle = Math.PI * (3.0 - Math.sqrt(5.0));
-                    const y = 1.0 - (i / (particleCount - 1.0)) * 2.0;
-                    const sphereRadius = Math.sqrt(1.0 - y * y);
-                    const theta = GoldenAngle * i;
-                    const x = Math.cos(theta) * sphereRadius;
-                    const z = Math.sin(theta) * sphereRadius;
-                    const finalRadius = Math.pow(Math.random(), 0.7) * radius;
+                    
+                    const u = Math.random();
+                    const v = Math.random();
+                    const theta = u * Math.PI * 2;
+                    const phi = Math.acos(2 * v - 1);
+                    const r = Math.cbrt(Math.random()) * radius;
 
-                    particlePositions[i3] = x * finalRadius;
-                    particlePositions[i3 + 1] = y * finalRadius;
-                    particlePositions[i3 + 2] = z * finalRadius;
-                    particleOrigPositions[i3] = particlePositions[i3];
-                    particleOrigPositions[i3 + 1] = particlePositions[i3 + 1];
-                    particleOrigPositions[i3 + 2] = particlePositions[i3 + 2];
-                    particleVelocities[i3] = (Math.random() - 0.5) * 0.02;
-                    particleVelocities[i3 + 1] = (Math.random() - 0.5) * 0.02;
-                    particleVelocities[i3 + 2] = (Math.random() - 0.5) * 0.02;
+                    const x = r * Math.sin(phi) * Math.cos(theta);
+                    const y = r * Math.sin(phi) * Math.sin(theta);
+                    const z = r * Math.cos(phi);
+
+                    nodePositions[i3] = x;
+                    nodePositions[i3 + 1] = y;
+                    nodePositions[i3 + 2] = z;
+                    nodeOrigPositions[i3] = x;
+                    nodeOrigPositions[i3 + 1] = y;
+                    nodeOrigPositions[i3 + 2] = z;
+                    nodeVelocities[i3] = (Math.random() - 0.5) * 0.01;
+                    nodeVelocities[i3 + 1] = (Math.random() - 0.5) * 0.01;
+                    nodeVelocities[i3 + 2] = (Math.random() - 0.5) * 0.01;
+                    tempNodePos.push(new THREE.Vector3(x, y, z)); 
 
                      const randColor = Math.random();
                      let tempColor;
-                     if (randColor < 0.45) tempColor = color1.clone();
-                     else if (randColor < 0.85) tempColor = color2.clone();
+                     if (randColor < 0.6) tempColor = color1.clone().lerp(color2, Math.random() * 0.5); 
                      else tempColor = color3.clone();
                     tempColor.multiplyScalar(0.7 + Math.random() * 0.3);
-                    particleColors[i3] = tempColor.r;
-                    particleColors[i3 + 1] = tempColor.g;
-                    particleColors[i3 + 2] = tempColor.b;
-                    particleOrigColors[i3] = particleColors[i3];
-                    particleOrigColors[i3 + 1] = particleColors[i3 + 1];
-                    particleOrigColors[i3 + 2] = particleColors[i3 + 2];
+                    nodeColors[i3] = tempColor.r; nodeColors[i3 + 1] = tempColor.g; nodeColors[i3 + 2] = tempColor.b;
+                    nodeOrigColors[i3] = nodeColors[i3]; nodeOrigColors[i3 + 1] = nodeColors[i3 + 1]; nodeOrigColors[i3 + 2] = nodeColors[i3 + 2];
                 }
 
-                particleGeometry = new THREE.BufferGeometry();
-                particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
-                particleGeometry.setAttribute('color', new THREE.BufferAttribute(particleColors, 3));
+                
+                nodeGeometry = new THREE.BufferGeometry();
+                nodeGeometry.setAttribute('position', new THREE.BufferAttribute(nodePositions, 3));
+                nodeGeometry.setAttribute('color', new THREE.BufferAttribute(nodeColors, 3));
+                nodeMaterial = new THREE.PointsMaterial({
+                    size: 0.5, 
+                    sizeAttenuation: true, vertexColors: true,
+                    transparent: true, opacity: 0.9, depthWrite: false,
+                    blending: THREE.AdditiveBlending 
+                });
+                nodes = new THREE.Points(nodeGeometry, nodeMaterial);
+                scene.add(nodes);
 
                 
-                particleMaterial = new THREE.PointsMaterial({
-                    size: 0.25, 
-                    sizeAttenuation: true, vertexColors: true,
-                    transparent: true, opacity: 0.8, depthWrite: false,
-                    blending: THREE.AdditiveBlending
+                const linePositions = [];
+                let connectionCounts = new Array(nodeCount).fill(0); 
+                for (let i = 0; i < nodeCount; i++) {
+                    if (connectionCounts[i] >= maxConnections) continue;
+                    for (let j = i + 1; j < nodeCount; j++) {
+                         if (connectionCounts[j] >= maxConnections) continue;
+                        const dist = tempNodePos[i].distanceTo(tempNodePos[j]);
+                        if (dist < connectionDistance) {
+                            
+                            linePositions.push(tempNodePos[i].x, tempNodePos[i].y, tempNodePos[i].z);
+                            linePositions.push(tempNodePos[j].x, tempNodePos[j].y, tempNodePos[j].z);
+                            edges.push([i, j]); 
+                            connectionCounts[i]++;
+                            connectionCounts[j]++;
+                            if (connectionCounts[i] >= maxConnections) break; 
+                        }
+                    }
+                }
+                lineGeometry = new THREE.BufferGeometry();
+                lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+                lineMaterial = new THREE.LineBasicMaterial({
+                    color: 0x64748b, 
+                    transparent: true,
+                    opacity: 0.25, 
+                     linewidth: 1 
                 });
+                lines = new THREE.LineSegments(lineGeometry, lineMaterial);
+                scene.add(lines);
 
-                particles = new THREE.Points(particleGeometry, particleMaterial);
-                scene.add(particles);
 
                 document.addEventListener('mousemove', onDocumentMouseMove, false);
                 document.addEventListener('mousedown', onDocumentMouseDown, false);
@@ -329,7 +367,7 @@
         }
 
         function onWindowResize() {
-             if(camera) {
+            if(camera) {
                 camera.aspect = window.innerWidth / window.innerHeight;
                 camera.updateProjectionMatrix();
             }
@@ -343,14 +381,13 @@
             mouse3D.x = (event.clientX / window.innerWidth) * 2 - 1;
             mouse3D.y = -(event.clientY / window.innerHeight) * 2 + 1;
             handleMouseMoveGeneral(event);
-
             raycaster.setFromCamera(mouse3D, camera);
             const planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
             raycaster.ray.intersectPlane(planeZ, mouseWorldPos);
         }
 
          function onDocumentMouseDown(event) {
-            if (clickEffect.active) return; 
+            if (clickEffect.active) return;
             raycaster.setFromCamera(mouse3D, camera);
             const planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
             raycaster.ray.intersectPlane(planeZ, clickEffect.position);
@@ -358,19 +395,17 @@
             clickEffect.time = 0;
         }
 
-
         function animateThreeJS() {
             requestAnimationFrame(animateThreeJS);
 
             const delta = clock.getDelta();
             const elapsedTime = clock.getElapsedTime();
-            const mousePushRadius = 5;
-            const mousePushStrength = 0.9; 
-            const clickEffectDuration = 0.6; 
-            const returnStrength = 0.006; 
-            const velocityDamping = 0.96;
-            const colorLerpSpeed = 5.0;
-            const clickColor = new THREE.Color(0x22d3ee); 
+            const mousePushRadius = 6; 
+            const mousePushStrength = 1.0;
+            const clickEffectDuration = 0.5; 
+            const returnStrength = 0.008; 
+            const velocityDamping = 0.94; 
+            const colorLerpSpeed = 6.0;
 
             if (clickEffect.active) {
                 clickEffect.time += delta;
@@ -379,60 +414,55 @@
                 }
             }
 
-            if (particles && particlePositions && particleVelocities && particleColors) {
-                const positions = particleGeometry.attributes.position.array;
-                const colors = particleGeometry.attributes.color.array;
+            if (nodes && nodePositions && nodeVelocities && nodeColors && lines) {
+                const positions = nodeGeometry.attributes.position.array;
+                const colors = nodeGeometry.attributes.color.array;
+                const linePos = lineGeometry.attributes.position.array;
 
-                const breathingScale = 1.0 + Math.sin(elapsedTime * 0.4) * 0.008; 
-                particles.scale.set(breathingScale, breathingScale, breathingScale);
-
-                for (let i = 0; i < particlePositions.length / 3; i++) {
+                
+                for (let i = 0; i < nodePositions.length / 3; i++) {
                     const i3 = i * 3;
-                    const particlePos = new THREE.Vector3(positions[i3], positions[i3+1], positions[i3+2]);
-                    const origPos = new THREE.Vector3(particleOrigPositions[i3], particleOrigPositions[i3+1], particleOrigPositions[i3+2]);
-                    const origColor = new THREE.Color(particleOrigColors[i3], particleOrigColors[i3+1], particleOrigColors[i3+2]);
+                    const nodePos = new THREE.Vector3(positions[i3], positions[i3+1], positions[i3+2]);
+                    const origPos = new THREE.Vector3(nodeOrigPositions[i3], nodeOrigPositions[i3+1], nodeOrigPositions[i3+2]);
+                    const origColor = new THREE.Color(nodeOrigColors[i3], nodeOrigColors[i3+1], nodeOrigColors[i3+2]);
                     const currentColor = new THREE.Color(colors[i3], colors[i3+1], colors[i3+2]);
-
                     let totalForce = new THREE.Vector3(0, 0, 0);
-                    const distanceToMouse = particlePos.distanceTo(mouseWorldPos);
-                    let targetColor = origColor; 
+                    const distanceToMouse = nodePos.distanceTo(mouseWorldPos);
+                    let targetColor = origColor;
 
                     
                     if (distanceToMouse < mousePushRadius) {
-                        const direction = particlePos.clone().sub(mouseWorldPos).normalize();
+                        const direction = nodePos.clone().sub(mouseWorldPos).normalize();
                         const strength = Math.pow(1.0 - distanceToMouse / mousePushRadius, 1.5) * mousePushStrength;
                         totalForce.add(direction.multiplyScalar(strength));
-                        
-                         
                     }
 
                     
                     if (clickEffect.active) {
-                        const distanceToClick = particlePos.distanceTo(clickEffect.position);
+                        const distanceToClick = nodePos.distanceTo(clickEffect.position);
                         if (distanceToClick < clickEffect.radius) {
-                             const clickDirection = particlePos.clone().sub(clickEffect.position).normalize();
-                             const decayFactor = Math.pow(Math.max(0, 1.0 - (clickEffect.time / clickEffectDuration)), 2); 
+                             const clickDirection = nodePos.clone().sub(clickEffect.position).normalize();
+                             const decayFactor = Math.pow(Math.max(0, 1.0 - (clickEffect.time / clickEffectDuration)), 2);
                              const clickStrength = Math.pow(1.0 - distanceToClick / clickEffect.radius, 2) * clickEffect.strength * decayFactor;
                              totalForce.add(clickDirection.multiplyScalar(clickStrength));
-                             
-                             targetColor = currentColor.clone().lerp(clickColor, decayFactor * 0.8);
+                             targetColor = currentColor.clone().lerp(clickColor, decayFactor * 0.9);
                         }
                     }
 
                     
-                    const returnDirection = origPos.clone().sub(particlePos);
+                    const returnDirection = origPos.clone().sub(nodePos);
                     totalForce.add(returnDirection.multiplyScalar(returnStrength));
 
                     
-                    particleVelocities[i3] += totalForce.x * delta * 60;
-                    particleVelocities[i3+1] += totalForce.y * delta * 60;
-                    particleVelocities[i3+2] += totalForce.z * delta * 60;
-                    particleVelocities[i3] *= velocityDamping;
-                    particleVelocities[i3+1] *= velocityDamping;
-                    particleVelocities[i3+2] *= velocityDamping;
-                    positions[i3] += particleVelocities[i3] * delta * 60;
-                    positions[i3+1] += particleVelocities[i3+1] * delta * 60;
-                    positions[i3+2] += particleVelocities[i3+2] * delta * 60;
+                    nodeVelocities[i3] += totalForce.x * delta * 60;
+                    nodeVelocities[i3+1] += totalForce.y * delta * 60;
+                    nodeVelocities[i3+2] += totalForce.z * delta * 60;
+                    nodeVelocities[i3] *= velocityDamping;
+                    nodeVelocities[i3+1] *= velocityDamping;
+                    nodeVelocities[i3+2] *= velocityDamping;
+                    positions[i3] += nodeVelocities[i3] * delta * 60;
+                    positions[i3+1] += nodeVelocities[i3+1] * delta * 60;
+                    positions[i3+2] += nodeVelocities[i3+2] * delta * 60;
 
                     
                     currentColor.lerp(targetColor, colorLerpSpeed * delta);
@@ -440,16 +470,34 @@
                     colors[i3+1] = currentColor.g;
                     colors[i3+2] = currentColor.b;
                 }
-                particleGeometry.attributes.position.needsUpdate = true;
-                particleGeometry.attributes.color.needsUpdate = true;
+                nodeGeometry.attributes.position.needsUpdate = true;
+                nodeGeometry.attributes.color.needsUpdate = true;
 
-                particles.rotation.y = elapsedTime * 0.035; 
+                
+                let lineVertexIndex = 0;
+                for (let i = 0; i < edges.length; i++) {
+                    const nodeIndex1 = edges[i][0];
+                    const nodeIndex2 = edges[i][1];
+
+                    linePos[lineVertexIndex++] = positions[nodeIndex1 * 3];
+                    linePos[lineVertexIndex++] = positions[nodeIndex1 * 3 + 1];
+                    linePos[lineVertexIndex++] = positions[nodeIndex1 * 3 + 2];
+
+                    linePos[lineVertexIndex++] = positions[nodeIndex2 * 3];
+                    linePos[lineVertexIndex++] = positions[nodeIndex2 * 3 + 1];
+                    linePos[lineVertexIndex++] = positions[nodeIndex2 * 3 + 2];
+                }
+                lineGeometry.attributes.position.needsUpdate = true;
+
+                
+                 if (nodes) nodes.rotation.y = elapsedTime * 0.03;
+                 if (lines) lines.rotation.y = elapsedTime * 0.03;
             }
 
-            
-             const camTargetX = mouse3D.x * 1.5;
-             const camTargetY = mouse3D.y * 1.5;
-             const camSmoothingFactor = 0.035; 
+             
+             const camTargetX = mouse3D.x * 2; 
+             const camTargetY = mouse3D.y * 2;
+             const camSmoothingFactor = 0.03; 
              camera.position.x += (camTargetX - camera.position.x) * camSmoothingFactor * delta * 60;
              camera.position.y += (camTargetY - camera.position.y) * camSmoothingFactor * delta * 60;
              camera.lookAt(scene.position);
@@ -468,7 +516,7 @@
         document.addEventListener('DOMContentLoaded', () => {
              wrapLetters('name-heading', 0.5);
              wrapLetters('title-heading', 0.7);
-
+             document.addEventListener('mousemove', handleMouseMoveGeneral, false);
              if (card) {
                 card.addEventListener('mousemove', handleMouseMoveCard);
                 card.addEventListener('mouseleave', handleMouseLeaveCard);
