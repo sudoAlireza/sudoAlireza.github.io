@@ -119,15 +119,6 @@
                         </a>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-phone fa-fw w-4 mr-3 mt-0.5 text-slate-400"></i>
-                            <a href="#"
-                               id="phone-reveal-link"
-                               data-phone-hashed="Kzk4OTE0MjQwNjIyNQ=="
-                               class="cursor-pointer hover:text-indigo-600 transition duration-150">
-                               <span class="italic text-slate-500">Click to reveal phone</span>
-                            </a>
-                        </li>
-                        <li class="flex items-start">
                             <i class="fab fa-linkedin fa-fw w-4 mr-3 mt-0.5 text-slate-400"></i>
                             <a href="https://linkedin.com/in/alirezafathi95" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 transition duration-150 break-all">linkedin.com/in/alirezafathi95</a>
                         </li>
@@ -255,27 +246,6 @@
     </div>
 
     <script>
-        const phoneLink = document.getElementById('phone-reveal-link');
-        if (phoneLink) {
-            phoneLink.addEventListener('click', function revealPhone(event) {
-                event.preventDefault();
-                const hashedPhone = this.getAttribute('data-phone-hashed');
-                if (hashedPhone) {
-                    try {
-                        const phoneNumber = atob(hashedPhone);
-                        this.textContent = phoneNumber;
-                        this.setAttribute('href', 'tel:' + phoneNumber);
-                        this.setAttribute('data-phone-decoded', phoneNumber);
-                        this.removeEventListener('click', revealPhone);
-                        this.classList.remove('cursor-pointer', 'italic', 'text-slate-500');
-                    } catch (e) {
-                        console.error("Failed to decode phone number:", e);
-                        this.textContent = "[Error revealing number]";
-                    }
-                }
-            });
-        }
-
 
         const emailLink = document.getElementById('email-reveal-link');
         if (emailLink) {
@@ -287,7 +257,7 @@
                         const emailAddress = atob(hashedEmail);
                         this.textContent = emailAddress;
                         this.setAttribute('href', 'mailto:' + emailAddress);
-                        this.setAttribute('data-email-decoded', emailAddress); // For print CSS
+                        this.setAttribute('data-email-decoded', emailAddress);
                         this.removeEventListener('click', revealEmail);
                         this.classList.remove('cursor-pointer', 'italic', 'text-slate-500');
                     } catch (e) {
