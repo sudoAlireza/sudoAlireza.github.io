@@ -5,88 +5,131 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    
     <title>Alireza Fathi - Backend Developer</title>
     <meta name="description" content="Alireza Fathi | Backend Developer specializing in Python, Go, Django, and FastAPI. Building and optimizing scalable web applications and APIs.">
     <meta name="author" content="Alireza Fathi">
 
+    
     <meta property="og:type" content="website">
-    <meta property="og:url" content="[YOUR_WEBSITE_URL_HERE]"> <meta property="og:title" content="Alireza Fathi - Backend Developer">
+    <meta property="og:url" content="#"> 
+    <meta property="og:title" content="Alireza Fathi - Backend Developer">
     <meta property="og:description" content="Backend Developer specializing in Python, Go, Django, and FastAPI. Building and optimizing scalable web applications and APIs.">
-    <meta name="twitter:card" content="summary"> <meta name="twitter:url" content="[YOUR_WEBSITE_URL_HERE]"> <meta name="twitter:title" content="Alireza Fathi - Backend Developer">
+    <meta property="og:image" content="assets/avatar.jpg"> 
+    <meta property="og:image:alt" content="Alireza Fathi's Profile Picture">
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="#"> 
+    <meta name="twitter:title" content="Alireza Fathi - Backend Developer">
     <meta name="twitter:description" content="Backend Developer specializing in Python, Go, Django, and FastAPI. Building and optimizing scalable web applications and APIs.">
+    <meta name="twitter:image" content="assets/avatar.jpg"> 
+
+    
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/favicon/site.webmanifest">
-    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#6366f1"> 
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 
+    
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
+        /* Base font */
         body {
             font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        /* Add subtle animation */
+
+        /* Subtle fade-in animation */
         @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            from { opacity: 0; transform: scale(0.98) translateY(5px); }
             to { opacity: 1; transform: scale(1) translateY(0); }
         }
         .fade-in-scale {
-            animation: fadeInScale 0.6s ease-out forwards;
+            animation: fadeInScale 0.5s ease-out forwards;
+        }
+
+        /* Custom focus styles for better accessibility */
+        .btn-focus-indigo:focus-visible {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5); /* Indigo focus ring */
+        }
+        .btn-focus-gray:focus-visible {
+             outline: 2px solid transparent;
+             outline-offset: 2px;
+             box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.5); /* Gray focus ring */
+        }
+        .btn-focus-sky:focus-visible {
+             outline: 2px solid transparent;
+             outline-offset: 2px;
+             box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.5); /* Sky focus ring */
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-gray-100 to-gray-200 text-gray-800">
+<body class="flex flex-col min-h-screen bg-gradient-to-br from-slate-50 to-slate-200 text-slate-700">
 
-    <div class="min-h-screen flex items-center justify-center p-4">
+    
+    <main class="flex-grow flex items-center justify-center p-4 sm:p-6 lg:p-8">
 
-        <div class="bg-white p-8 md:p-12 rounded-xl shadow-2xl text-center max-w-xl w-full fade-in-scale">
+        
+        <div class="bg-white p-8 md:p-10 lg:p-12 rounded-xl shadow-xl text-center max-w-2xl w-full fade-in-scale transition duration-300 ease-in-out hover:shadow-2xl">
 
+            
             <div class="mb-6">
-                 <i class="fas fa-user-circle text-7xl md:text-8xl text-blue-500"></i>
-                 </div>
+                <img class="w-28 h-28 md:w-32 md:h-32 rounded-full mx-auto border-4 border-indigo-100 shadow-lg object-cover" src="assets/avatar.jpg" alt="Alireza Fathi">
+            </div>
 
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-1">
+            
+            <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-1">
                 Alireza Fathi
             </h1>
 
-            <h2 class="text-lg md:text-xl font-medium text-blue-600 mb-4">
+            
+            <h2 class="text-xl md:text-2xl font-medium text-indigo-600 mb-5">
                 Backend Developer
             </h2>
 
-            <p class="text-gray-600 mb-8 leading-relaxed max-w-md mx-auto">
+            
+            <p class="text-slate-600 mb-8 leading-relaxed max-w-lg mx-auto text-base md:text-lg">
                 Building and optimizing robust web applications and APIs with expertise in Python, Go, Django, and FastAPI. Passionate about continuous learning and contributing innovative solutions in software engineering.
             </p>
 
+            
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4">
                 <a href="resume.html"
-                   class="w-full sm:w-auto inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 ease-in-out transform hover:-translate-y-1 shadow-md hover:shadow-lg">
+                   class="w-full sm:w-auto inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 ease-in-out transform hover:-translate-y-0.5 shadow-md hover:shadow-lg btn-focus-indigo">
                    <i class="fas fa-file-alt mr-2"></i> View Full Resume
                 </a>
                 <a href="https://github.com/sudoAlireza" target="_blank" rel="noopener noreferrer"
-                   class="w-full sm:w-auto inline-block bg-gray-700 hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 ease-in-out transform hover:-translate-y-1 shadow-md hover:shadow-lg">
+                   class="w-full sm:w-auto inline-flex items-center justify-center bg-gray-800 hover:bg-gray-900 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 ease-in-out transform hover:-translate-y-0.5 shadow-md hover:shadow-lg btn-focus-gray">
                    <i class="fab fa-github mr-2"></i> GitHub
                 </a>
                 <a href="https://www.linkedin.com/in/alirezafathi95" target="_blank" rel="noopener noreferrer"
-                   class="w-full sm:w-auto inline-block bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 ease-in-out transform hover:-translate-y-1 shadow-md hover:shadow-lg">
+                   class="w-full sm:w-auto inline-flex items-center justify-center bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 ease-in-out transform hover:-translate-y-0.5 shadow-md hover:shadow-lg btn-focus-sky">
                    <i class="fab fa-linkedin mr-2"></i> LinkedIn
                 </a>
             </div>
 
-        </div> </div> <footer class="text-center p-4 text-gray-500 text-sm absolute bottom-0 left-0 right-0">
-         &copy; <span id="current-year"></span> Alireza Fathi. All rights reserved.
+        </div>
+    </main>
+
+    
+    <footer class="text-center p-6 text-slate-500 text-sm">
+         © <span id="current-year"></span> Alireza Fathi. All rights reserved.
     </footer>
 
+    
     <script>
-        // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 
