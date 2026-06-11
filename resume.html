@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alireza Fathi - Backend Developer Resume</title>
+    <meta name="description" content="Resume of Alireza Fathi — Back-End Developer specializing in Python, Go, Django, and FastAPI.">
+    <meta name="author" content="Alireza Fathi">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#4f46e5">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -34,7 +44,13 @@
         }
 
         .section-heading {
-             @apply text-base font-semibold text-indigo-600 uppercase tracking-widest pb-2 mb-2;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4f46e5;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
         }
 
         .section-heading::after {
@@ -48,22 +64,42 @@
         }
 
         .experience-item ul {
-            @apply list-disc list-outside ml-5 text-sm text-slate-600 space-y-1 leading-relaxed;
+            list-style-type: disc;
+            list-style-position: outside;
+            margin-left: 1.25rem;
+            font-size: 0.875rem;
+            color: #475569;
+            line-height: 1.625;
+        }
+        .experience-item ul li + li {
+            margin-top: 0.25rem;
         }
 
         .skill-category-title {
-             @apply text-sm font-semibold text-slate-700 mb-2; /* Added slightly more margin-bottom */
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 0.5rem;
         }
 
         .skill-tag {
-             @apply inline-block border border-slate-200 bg-white text-slate-700 text-xs font-medium px-2.5 py-0.5 rounded-md shadow-sm; /* Subtle shadow added */
-             /* transition: all 0.15s ease-in-out; */ /* Optional: subtle hover effect */
+            display: inline-block;
+            border: 1px solid #e2e8f0;
+            background-color: #ffffff;
+            color: #334155;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.125rem 0.625rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            transition: all 0.15s ease-in-out;
         }
-         /* Optional hover effect
-         .skill-tag:hover {
-             transform: translateY(-1px);
-             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-         } */
+        .skill-tag:hover {
+            transform: translateY(-1px);
+            border-color: #a5b4fc;
+            color: #4f46e5;
+            box-shadow: 0 2px 6px rgba(99, 102, 241, 0.12);
+        }
 
 
         @media print {
@@ -87,15 +123,24 @@
              #experience ul li { margin-bottom: 0.25rem; }
             a { color: #4f46e5; text-decoration: none; }
             .sidebar ul li { margin-bottom: 0.5rem; }
-            #phone-reveal-link::before { content: attr(data-phone-decoded); color: #4f46e5; }
-            #phone-reveal-link span { display: none; }
-            .skill-tag { border: 1px solid #ccc; padding: 1px 4px; box-shadow: none; background: transparent; margin: 1px; } /* Simple print style for tags */
+            .skill-tag { border: 1px solid #ccc; padding: 1px 4px; box-shadow: none; background: transparent; margin: 1px; }
         }
     </style>
 </head>
 <body class="text-sm">
 
-    <div class="resume-container max-w-5xl mx-auto shadow-xl rounded-lg my-16 overflow-hidden">
+    <nav class="no-print sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200 shadow-sm">
+        <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
+            <a href="index.html" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors duration-150">
+                <i class="fas fa-arrow-left text-xs"></i> Back to Home
+            </a>
+            <button onclick="window.print()" class="inline-flex items-center gap-2 text-sm font-semibold bg-indigo-600 text-white px-4 py-1.5 rounded-md hover:bg-indigo-700 active:scale-95 transition-all duration-150">
+                <i class="fas fa-print text-xs"></i> Print / Save PDF
+            </button>
+        </div>
+    </nav>
+
+    <div class="resume-container max-w-5xl mx-auto shadow-xl rounded-lg my-10 overflow-hidden">
 
         <div class="lg:grid lg:grid-cols-10">
 
@@ -205,7 +250,7 @@
                 <section id="about" class="mb-12">
                     <h3 class="section-heading">Summary</h3>
                     <p class="text-slate-700 text-base leading-relaxed">
-                        Back-End Developer with expertise in building and optimizing web applications and APIs, primarily using Python, Django, and FastAPI, and growing expertise in Go. Known for a continuous learning mindset and contributing innovative solutions. At SnappShop, played a key role in the Seller team by enhancing daily product upload efficiency and contributed to the Delivery team by implementing a new hub management system that reduced CPO in targeted cities, and replatforming a Django monolith service to Go microservices. Seeking challenging roles to gain new experiences and continually expand my knowledge in software engineering. 
+                        Backend developer with 4+ years at Snapp! Shop, building and operating Python and Go systems for a high-traffic e-commerce platform. I work across delivery and seller workflows: maintaining a legacy Django delivery service, moving parts of the platform to Go, and rebuilding product ingestion so it can handle 50x more daily uploads. I also helped launch hub-based courier routing that reduced cost per order by 40% in pilot cities, and an LLM-assisted product description tool now used for about 25% of the catalog. I enjoy turning messy production systems into services that are easier to understand, operate, and extend.
                     </p>
                 </section>
 
@@ -219,11 +264,11 @@
                             </div>
                             <p class="text-sm font-medium text-slate-600 mb-3">Snapp! Shop</p>
                             <ul class="list-disc list-outside ml-5 space-y-1 text-sm text-slate-600 leading-relaxed">
-                                <li>Maintaining and troubleshooting the legacy Django-based delivery system, resolving production incidents, fixing bugs, and implementing minor feature enhancements.</li>
-                                <li>Contributed to implementing new hub management system that optimized order delivery by clustering order locations within polygons and dispatching third-party vehicles, resulting in a 40% reduction in CPO in targeted cities.</li>
-                                <li>Working on the replatforming from Python/Django to Go, writing new Go services and helping the team understand the legacy codebase to facilitate the migration.</li>
-                                <li>Optimized data processing systems and developed scalable data pipelines using Python, Flask, Celery, and Airflow, resulting in a 50x increase in daily product uploads.</li>
-                                <li>Implemented an AI system to automatically generate descriptions for 25% of products.</li>
+                                <li>Maintain the Django-based delivery platform day to day, including production support, incident debugging, bug fixes, and incremental improvements in a live ordering system.</li>
+                                <li>Co-built a hub routing system that groups orders into geographic delivery zones and assigns third-party couriers by proximity, reducing cost per order by 40% in targeted cities.</li>
+                                <li>Help lead the Django-to-Go migration by writing new Go services, documenting legacy behavior, and helping the team build confidence with Go patterns.</li>
+                                <li>Redesigned the seller product ingestion pipeline with Python, Celery, and Airflow, replacing a fragile single-threaded flow with a distributed pipeline that handles 50x more daily upload volume.</li>
+                                <li>Built an LLM-assisted product description generator that now writes copy for roughly 25% of the catalog, reducing repetitive work for the content team.</li>
                             </ul>
                         </div>
                         <div class="experience-item">
@@ -233,7 +278,7 @@
                             </div>
                             <p class="text-sm font-medium text-slate-600 mb-3">StyleUp</p>
                              <ul class="list-disc list-outside ml-5 space-y-1 text-sm text-slate-600 leading-relaxed">
-                                <li>Developed and maintained Python scripts for web scraping using BeautifulSoup and Selenium, and optimized them for speed and efficiency by leveraging Python's concurrent programming techniques to enhance performance for I/O-bound operations.</li>
+                                <li>Built Python scrapers with BeautifulSoup and Selenium to collect fashion product data from external sites. Later rewrote the crawlers with threading and async I/O, reducing total crawl time for the same datasets.</li>
                             </ul>
                         </div>
                     </div>
@@ -268,7 +313,6 @@
             });
         }
 
-        console.log("Resume loaded!");
     </script>
 
 </body>
